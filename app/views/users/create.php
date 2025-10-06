@@ -7,34 +7,25 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body class="bg-gradient-to-br from-slate-900 via-indigo-950 to-black min-h-screen flex items-center justify-center font-sans text-gray-200">
-
-  <div class="bg-white/10 backdrop-blur-xl p-8 rounded-3xl shadow-2xl w-full max-w-md animate-fadeIn border border-gray-700">
-    
-    <!-- Header -->
-    <div class="flex flex-col items-center mb-6">
-      <div class="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full p-3 shadow-md">
-        <i class="fa-solid fa-user-graduate text-white text-3xl drop-shadow-lg"></i>
+<body class="bg-gradient-to-br from-indigo-900 via-blue-900 to-gray-900 min-h-screen flex items-center justify-center font-sans text-gray-200">
+  <div class="bg-white/10 backdrop-blur-xl p-10 rounded-3xl shadow-2xl w-full max-w-lg border border-gray-700">
+    <div class="flex flex-col items-center mb-8">
+      <div class="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full p-4 shadow-md">
+        <i class="fa-solid fa-user-graduate text-white text-4xl drop-shadow-lg"></i>
       </div>
-      <h2 class="text-2xl font-bold text-white mt-3">Create Your Student Account</h2>
-      <p class="text-gray-400 text-sm">Join our student community today!</p>
+      <h2 class="text-3xl font-bold text-white mt-4 tracking-tight">Create Your Student Account</h2>
+      <p class="text-gray-400 text-sm mt-1">Join our student community today!</p>
     </div>
-
-    <!-- Form -->
     <?php $current_page = isset($_GET['page']) ? (int) $_GET['page'] : 1; ?>
-  <form action="<?=site_url('index.php/users/create')?>" method="POST" class="space-y-5">
+    <form action="<?=site_url('index.php/users/create')?>" method="POST" class="space-y-6">
       <input type="hidden" name="page" value="<?= $current_page ?>">
-      
-      <!-- First Name -->
       <div>
-        <label class="block text-gray-300 mb-1 font-medium">First Name</label>
+        <label class="block text-gray-300 mb-1 font-semibold">First Name</label>
         <input type="text" name="fname" placeholder="Enter your first name" required
                class="w-full px-4 py-3 bg-black/30 text-gray-200 border border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-none shadow-sm transition duration-200">
       </div>
-
-      <!-- Last Name -->
       <div>
-        <label class="block text-gray-300 mb-1 font-medium">Last Name</label>
+        <label class="block text-gray-300 mb-1 font-semibold">Last Name</label>
         <input type="text" name="lname" placeholder="Enter your last name" required
                class="w-full px-4 py-3 bg-black/30 text-gray-200 border border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-none shadow-sm transition duration-200">
       </div>

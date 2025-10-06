@@ -3,38 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Directory - Glassmorphism</title>
+    <title>User Directory</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        body {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            background-attachment: fixed;
-        }
-        .glass-container {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        }
-        .table-bg {
-            background: rgba(255, 255, 255, 0.05);
-        }
-    </style>
 </head>
-<body class="font-sans text-white">
-
-    <div class="max-w-6xl mx-auto mt-10 p-8 rounded-3xl glass-container">
-        <div class="flex justify-between items-center mb-6">
-            <h1 class="text-4xl font-extrabold text-white drop-shadow-lg">User Directory</h1>
+<body class="bg-gradient-to-br from-indigo-900 via-blue-900 to-gray-900 min-h-screen font-sans text-white">
+    <div class="max-w-6xl mx-auto mt-12 p-10 rounded-3xl bg-white/10 backdrop-blur-xl shadow-2xl border border-gray-700">
+        <div class="flex justify-between items-center mb-8">
+            <div class="flex items-center gap-3">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Logo" class="w-10 h-10 drop-shadow">
+                <h1 class="text-4xl font-extrabold text-white drop-shadow-lg tracking-tight">User Directory</h1>
+            </div>
             <div class="flex items-center gap-4">
                 <form method="get" action="<?=site_url('')?>" class="flex items-center gap-2">
                     <input type="text" name="q" value="<?= isset($q) ? htmlspecialchars($q, ENT_QUOTES) : '' ?>" placeholder="Search name or email"
-                        class="px-4 py-2 rounded-full bg-white bg-opacity-10 text-white focus:outline-none" />
-                    <button type="submit" class="px-4 py-2 rounded-full bg-indigo-600 hover:bg-indigo-500">Search</button>
+                        class="px-4 py-2 rounded-full bg-white/20 text-white focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+                    <button type="submit" class="px-4 py-2 rounded-full bg-indigo-600 hover:bg-indigo-500 font-semibold">Search</button>
                 </form>
-
-                <!-- show signed-in user and logout -->
                 <?php $uid = function_exists('lava_instance') ? lava_instance()->session->userdata('user_id') : null; ?>
                 <?php if ($uid): ?>
                     <?php $user = lava_instance()->UsersModel->find($uid); ?>
@@ -47,11 +32,10 @@
                 <?php endif; ?>
             </div>
         </div>
-
         <div class="overflow-x-auto rounded-xl">
-            <table class="w-full text-center table-bg rounded-xl overflow-hidden">
+            <table class="w-full text-center bg-white/5 rounded-xl overflow-hidden shadow-lg">
                 <thead>
-                    <tr class="bg-white bg-opacity-10 uppercase text-xs font-bold tracking-wider">
+                    <tr class="bg-white/10 uppercase text-xs font-bold tracking-wider">
                         <th class="py-4 px-4">ID</th>
                         <th class="py-4 px-4">Lastname</th>
                         <th class="py-4 px-4">Firstname</th>
