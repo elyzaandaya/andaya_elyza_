@@ -1,4 +1,5 @@
 <?php
+error_log('TEST LOG: AuthController loaded');
 defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
 class AuthController extends Controller {
