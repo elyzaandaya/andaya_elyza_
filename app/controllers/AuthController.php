@@ -99,8 +99,8 @@ class AuthController extends Controller {
     protected function ensure_default_admin()
     {
         // default admin credentials (single admin)
-        $admin_email = 'admin@admin';
-        $admin_password = 'aldge042224';
+    $admin_email = 'admin@admin';
+    $admin_password = 'admin123';
 
         // If required columns are missing, do not attempt DB writes
         if (! $this->UsersModel->has_columns(['password', 'role'])) {
