@@ -17,7 +17,12 @@ class AuthController extends Controller {
 
             // find user by email
             $user = $this->UsersModel->filter(['email' => $email])->get();
-            if ($user && isset($user['password']) && password_verify($password, $user['password'])) {
+            // DEBUG: Output user and password check result
+            error_log('LOGIN DEBUG: email=' . $email);
+            error_log('LOGIN DEBUG: user=' . print_r($user, true));
+            $pw_check = ($user && isset($user['password'])) ? password_verify($password, $user['password']) : false;
+            error_log('LOGIN DEBUG: password_verify=' . ($pw_check ? 'true' : 'false'));
+            if ($user && isset($user['password']) && $pw_check) {
                 // set session
                 $this->session->set_userdata('user_id', $user['id']);
                 $this->session->set_userdata('role', isset($user['role']) ? $user['role'] : 'user');
